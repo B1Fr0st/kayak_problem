@@ -2,18 +2,18 @@ This is an incredibly crude yet effective solution to the kayak logic problem wr
 
 The kayak logic problem is as follows:
 
-`
-    k
 
-  k a k
+____k_____
+
+__k a k__
 
 k a y a k
 
-  k a k
+__k a k__
 
-    k
-    
-`
+____k____
+
+
 With the following arragements of letters, how many unique ways can you spell the word "kayak" without reusing the same letter?
 
 The code works by looping through every single letter, and progressively checking if it would fit those criteria by recursively checking the neighbors of the letters that, and checking the neighbors of the neighbors that would be a valid continuation, and so on.
