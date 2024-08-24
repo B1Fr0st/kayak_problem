@@ -2,8 +2,8 @@ This is an incredibly crude yet effective solution to the kayak logic problem wr
 
 The kayak logic problem is as follows:
 
-
-____k_____
+<pre>
+    k____
 
 __k a k__
 
@@ -12,7 +12,7 @@ k a y a k
 __k a k__
 
 ____k____
-
+</pre>
 
 With the following arragements of letters, how many unique ways can you spell the word "kayak" without reusing the same letter?
 
