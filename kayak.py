@@ -21,34 +21,35 @@ letters = [
 
 
 
-def get_neighbors(letters, i, j):
-    if i > 0:
-        top = letters[i-1][j]
+def get_neighbors(arr, k, l):
+    """Returns the list of neighbors in arr separated from the coordinates [k,l] by one."""
+    if k > 0:
+        top = arr[k-1][l]
     else:
         top = ""
-    if i < len(letters)-1:
-        bottom = letters[i+1][j]
+    if k < len(arr)-1:
+        bottom = arr[k+1][l]
     else:
         bottom = ""
-    if j < len(letters[i])-1:
-        right = letters[i][j+1]  
+    if l < len(arr[k])-1:
+        right = arr[i][l+1]
     else:
         right = ""
-    if j > 0:
-        left = letters[i][j-1]
+    if l > 0:
+        left = arr[k][l-1]
     else:
         left = ""
     return [top,bottom,right,left]
 
 offsets = [(-1,0),(1,0),(0,1),(0,-1)]
 solutions = []
-for i in range(len(letters)):
-    for j in range(len(letters[i])):
+for i, n in enumerate(letters):
+    for j, m in enumerate(letters[i]):
         current_letter = letters[i][j]
         if current_letter == "k": #Find first k
             neighbors = get_neighbors(letters,i,j)
             first_k = (i,j)
-            
+
             for ind, neighbor in enumerate(neighbors):#Find first a
                 if neighbor == "a":
                     temp_i = i+offsets[ind][0]
@@ -79,7 +80,8 @@ for i in range(len(letters)):
                                         if neighbor == "k":
                                             second_k = (temp_i4,temp_j4)
                                             solution = (first_k,first_a,(2,2),second_a,second_k)
-                                            inverse_solution = (second_k,second_a,(2,2),first_a,first_k)
+                                            inverse_solution = (second_k,
+                                                                second_a,(2,2),first_a,first_k)
                                             if inverse_solution not in solutions:
                                                 solutions.append(solution)
 for solution in solutions:
@@ -97,4 +99,4 @@ for solution in solutions:
         path[index[0]][index[1]] = f"{ind+1}"
     for line in path:
         print(line)
-print(f"number of permutations:{len(solutions)}") #exactly 100 lines makes my soul pure
+print(f"number of permutations:{len(solutions)}")
