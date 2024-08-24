@@ -4,10 +4,15 @@ The kayak logic problem is as follows:
 
 `
     k
+
   k a k
+
 k a y a k
+
   k a k
+
     k
+    
 `
 With the following arragements of letters, how many unique ways can you spell the word "kayak" without reusing the same letter?
 
